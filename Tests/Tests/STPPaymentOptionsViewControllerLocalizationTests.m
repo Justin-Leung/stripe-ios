@@ -31,7 +31,8 @@
     config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
     config.additionalPaymentOptions = STPPaymentOptionTypeAll;
     STPTheme *theme = [STPTheme defaultTheme];
-    id customerContext = [STPMocks staticCustomerContextWithCustomer:[STPFixtures customerWithCardTokenAndSourceSources]];
+    // TODO what paymentMethods to put here to pass the tests?
+    id customerContext = [STPMocks staticCustomerContextWithCustomer:[STPFixtures customerWithCardTokenAndSourceSources] paymentMethods:@[]];
     id delegate = OCMProtocolMock(@protocol(STPPaymentOptionsViewControllerDelegate));
     [STPLocalizationUtils overrideLanguageTo:language];
     STPPaymentOptionsViewController *paymentOptionsVC = [[STPPaymentOptionsViewController alloc] initWithConfiguration:config
